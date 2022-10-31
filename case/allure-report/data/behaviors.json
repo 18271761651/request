@@ -1,0 +1,41 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "测试类名",
+    "children" : [ {
+      "name" : "登录",
+      "children" : [ {
+        "name" : "test_login",
+        "uid" : "37cdb66749437470",
+        "parentUid" : "e07479a513ce6abacf9d5ed954267d99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1667210229783,
+          "stop" : 1667210229863,
+          "duration" : 80
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e07479a513ce6abacf9d5ed954267d99"
+    }, {
+      "name" : "上传文件",
+      "children" : [ {
+        "name" : "test_upload",
+        "uid" : "30b082fc4d2e6c96",
+        "parentUid" : "a76959411a766a3323a11da7a70b25c8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1667210229867,
+          "stop" : 1667210230065,
+          "duration" : 198
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a76959411a766a3323a11da7a70b25c8"
+    } ],
+    "uid" : "0e92f4f84965c8b6bce9fe242521c1ac"
+  } ]
+}

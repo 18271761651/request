@@ -57,7 +57,7 @@ class TestRequest:
 
 if __name__ == '__main__':
     # pytest.main(['-s', '-q', '--alluredir', './report/xml'])
-    # pytest.main(['-s', '-q', 'test_01.py', '--clean-alluredir', '--alluredir=./allure-results'])
-    # os.system(r"allure generate -c -o allure-report")
-    # os.system(r'allure serve ./allure-results')
-    pytest.main(['-–html=./report.html','test_01.py'])
+    pytest.main(['-s', '-q', 'test_01.py', '--clean-alluredir', '--alluredir=../allure/allure-results'])
+    # os.system(r"allure generate -c -o ../reports/allure-report")    # -c:清空历史数据 -o:指定输出测试报告路径
+    os.system(r'allure serve ./allure-results') # 在默认浏览器中显示生成的报告
+    # pytest.main(['-–html=./report.html','test_01.py'])
