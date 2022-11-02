@@ -1,20 +1,19 @@
-import pytest,allure,requests,pprint,random,string
+import pytest,allure,requests,pprint,random,string,os
 from requests_toolbelt import MultipartEncoder
 from request.common.log import Logging
 from request.common.yaml_util import YamlUtil
+from request.common.request_util import ReuqestsUtil
 
 @allure.feature("测试类名")
 class TestRequest:
 
-    Authorization=''
+    session=requests.session()
 
     def setup(self):
         print('\n每个用例前执行')
 
     def teardown(self):
         print('\n每个用例后执行')
-
-
 
     def print(self,response):
         print('状态码：',response.status_code)
@@ -32,28 +31,32 @@ class TestRequest:
         print("\r 文件上传进度：%d%%(%d/%d)" % (progress, monitor.bytes_read, monitor.len), end=" ")
 
     @allure.story("登录")
-    def test_login(self):
+    @pytest.mark.parametrize('caseinfo',YamlUtil().read_testcase_yaml('login.yml'))
+    def test_login(self,caseinfo):
         '''登陆'''
-        url = 'http://116.63.186.61:2031/api/Common/Login/Login'
-        headers = {'Content-Type': 'application/json'}
-        data = {
-          "loginName": "hlcs",  # 登录名
-          "pwd": "123456",      # 密码
-          "expirationDays": 1   # 有效天数
-        }
-        r = requests.post(url, headers=headers, json=data,allow_redirects=False)
+        method=caseinfo['request']['method']
+        url = caseinfo['request']['url']
+        headers = caseinfo['request']['headers']
+        data = caseinfo['request']['data']
+        r = ReuqestsUtil().send_request(method=method,url=url, headers=headers, json=data)
         self.print(r)
         YamlUtil().write_extract_yaml({"Authorization":("Bearer "+r.json()['data']['encryptedAccessToken'])})
         assert 'encryptedAccessToken' in r.text
 
     @allure.story("上传文件")
-    def test_upload(self,conn_database):
-        '''图片上传'''
-        url='http://116.63.186.61:2031/api/Common/Files/Upload'
+    @pytest.mark.parametrize('caseinfo',YamlUtil().read_testcase_yaml('upload.yml'))
+    def test_upload(self,caseinfo):
+        f'''{caseinfo['name']}'''
         headers=YamlUtil().read_extract_yaml()
+        url = caseinfo['request']['url']
+        method = caseinfo['request']['method']
+        module=caseinfo['request']['file']['module']
+        filename=caseinfo['request']['file']['filename']
+        filepath=caseinfo['request']['file']['filepath']
+        formate=caseinfo['request']['file']['formate']
         file={
-            'module': 'Goods',
-            'Files': ('弥豆子.jpg', open('E:\图片\Saved Pictures\鬼灭之刃.jpg','rb'), 'image.png')
+            'module': module,
+            'Files': (filename, filepath, formate)
         }
         # 因为16位数随机的，每次都不一样
         boundary = '----WebKitFormBoundary' \
@@ -63,7 +66,7 @@ class TestRequest:
         headers["Content-Type"] = data.content_type
         # '''添加监听器'''
         # data_2=MultipartEncoderMonitor(data_1, self.my_callback)
-        r = requests.post(url=url, headers=headers, data=data,allow_redirects=False)
+        r = ReuqestsUtil().send_request(method=method,url=url, headers=headers, data=data)
         assert r.json()['businessStatus']==1
         self.print(r)
 
@@ -77,13 +80,14 @@ class TestRequest:
 
     def test_05(self):
         pass
+
 if __name__ == '__main__':
     # os.system('pip install -r requirements.txt')
     # pytest.main(['-s', '-q', '--alluredir', './report/xml'])
     # pytest.main(['-s', '-q', 'test_01.py', '--clean-alluredir', '--alluredir=../allure/allure-results'])
-    # os.system(r"allure generate -c -o ../reports/allure-report")    # -c:清空历史数据 -o:指定输出测试报告路径
     # os.system(r'allure serve ../allure/allure-results') # 在默认浏览器中显示生成的报告
 
-    pytest.main() #['-vs','-n=2','--reruns=2','--html=../reports/report.html']
+    pytest.main(['test_01.py','-m=parametrize']) #['-vs','-n=2','--reruns=2','--html=../reports/report.html']
+    os.system(r"allure generate ../tmp -c -o ../reports/allure-report")    # -c:清空历史数据 -o:指定输出测试报告路径
 
 

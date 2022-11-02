@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Oct 31 17:57:09 CST 2022","Mon Oct 31 17:57:09 CST 2022","80","","test_01","TestRequest","","","test_login",""
-"passed","Mon Oct 31 17:57:09 CST 2022","Mon Oct 31 17:57:10 CST 2022","198","","test_01","TestRequest","","","test_upload","图片上传"
