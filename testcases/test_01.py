@@ -45,7 +45,7 @@ class TestRequest:
 
     @allure.story("上传文件")
     @pytest.mark.parametrize('caseinfo',YamlUtil().read_testcase_yaml('upload.yml'))
-    def test_upload(self,caseinfo):
+    def test_upload(self,caseinfo,conn_database):
         f'''{caseinfo['name']}'''
         headers=YamlUtil().read_extract_yaml()
         url = caseinfo['request']['url']
@@ -71,7 +71,7 @@ class TestRequest:
         self.print(r)
 
     @pytest.mark.smoke
-    def test_03(self):
+    def test_03(self,conn_database):
         pass
 
     @pytest.mark.smoke
@@ -83,11 +83,10 @@ class TestRequest:
 
 if __name__ == '__main__':
     # os.system('pip install -r requirements.txt')
-    # pytest.main(['-s', '-q', '--alluredir', './report/xml'])
-    # pytest.main(['-s', '-q', 'test_01.py', '--clean-alluredir', '--alluredir=../allure/allure-results'])
-    # os.system(r'allure serve ../allure/allure-results') # 在默认浏览器中显示生成的报告
+    # pytest.main(['-s', '-q', 'test_01.py', '--clean-alluredir', '--alluredir=../result/allure-results'])
+    # os.system(r'allure serve ../result/allure-results') # 在默认浏览器中显示生成的报告
 
-    pytest.main(['test_01.py','-m=parametrize']) #['-vs','-n=2','--reruns=2','--html=../reports/report.html']
-    os.system(r"allure generate ../tmp -c -o ../reports/allure-report")    # -c:清空历史数据 -o:指定输出测试报告路径
+    pytest.main(['-vs','test_01.py','-m=parametrize','--alluredir','../reports/tmp']) #['-vs','-n=2','--reruns=2','--html=../reports/report.html']
+    os.system(r"allure generate ../reports/tmp -c -o ../reports/html")    # -c:清空历史数据 -o:指定输出测试报告路径
 
 

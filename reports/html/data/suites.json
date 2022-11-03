@@ -1,0 +1,77 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "testcases",
+    "children" : [ {
+      "name" : "test_01",
+      "children" : [ {
+        "name" : "TestRequest",
+        "children" : [ {
+          "name" : "test_03",
+          "uid" : "965cde39dcefa2b5",
+          "parentUid" : "f77e331833c5f4c830f3ce55c47f2295",
+          "status" : "passed",
+          "time" : {
+            "start" : 1667468408000,
+            "stop" : 1667468408000,
+            "duration" : 0
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_04",
+          "uid" : "b413ef199b2b62c9",
+          "parentUid" : "f77e331833c5f4c830f3ce55c47f2295",
+          "status" : "passed",
+          "time" : {
+            "start" : 1667468408009,
+            "stop" : 1667468408010,
+            "duration" : 1
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_login[caseinfo0]",
+          "uid" : "282427adaf0b4604",
+          "parentUid" : "f77e331833c5f4c830f3ce55c47f2295",
+          "status" : "passed",
+          "time" : {
+            "start" : 1667468635776,
+            "stop" : 1667468635842,
+            "duration" : 66
+          },
+          "flaky" : false,
+          "parameters" : [ "{'request': {'method': 'post', 'url': 'http://116.63.186.61:2031/api/Common/Login/Login', 'data': {'loginName': 'hlcs', 'pwd': 123456, 'expirationDays': 1}, 'headers': {'Content-Type': 'application/json'}}, 'validate': 'None'}" ]
+        }, {
+          "name" : "test_upload[caseinfo0]",
+          "uid" : "18374a829b28b858",
+          "parentUid" : "f77e331833c5f4c830f3ce55c47f2295",
+          "status" : "passed",
+          "time" : {
+            "start" : 1667468635865,
+            "stop" : 1667468635917,
+            "duration" : 52
+          },
+          "flaky" : false,
+          "parameters" : [ "{'name': '上传图片', 'request': {'method': 'post', 'url': 'http://116.63.186.61:2031/api/Common/Files/Upload', 'file': {'module': 'Goods', 'filename': '鬼灭之刃.jpg', 'filepath': 'E:\\\\图片\\\\Saved Pictures\\\\鬼灭之刃.jpg', 'formate': 'image.png'}}, 'validate': 'None'}" ]
+        }, {
+          "name" : "test_upload[caseinfo1]",
+          "uid" : "5a656419898b9c87",
+          "parentUid" : "f77e331833c5f4c830f3ce55c47f2295",
+          "status" : "passed",
+          "time" : {
+            "start" : 1667468635944,
+            "stop" : 1667468635983,
+            "duration" : 39
+          },
+          "flaky" : false,
+          "parameters" : [ "{'name': '${get_random_number()}', 'request': {'method': 'post', 'url': 'http://116.63.186.61:2031/api/Common/Files/UploadVideo', 'file': {'module': 'GoodsVideo', 'filename': '1.mp4', 'filepath': 'E:\\\\视频\\\\录像\\\\1.mp4', 'formate': 'video/mp4'}}, 'validate': 'None'}" ]
+        } ],
+        "uid" : "f77e331833c5f4c830f3ce55c47f2295"
+      } ],
+      "uid" : "0ca5f94d6dbc8958cf92a5c145a68379"
+    } ],
+    "uid" : "b51346658ccdb9db01a6b5f6c12deab1"
+  } ]
+}

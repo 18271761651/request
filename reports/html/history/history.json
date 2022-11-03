@@ -1,0 +1,97 @@
+{
+  "ba92de689bdd74c6066a979dc4aac5eb" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5a656419898b9c87",
+      "status" : "passed",
+      "time" : {
+        "start" : 1667468635944,
+        "stop" : 1667468635983,
+        "duration" : 39
+      }
+    } ]
+  },
+  "3725a814cbe8d88972fe2b6414bbdb90" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "965cde39dcefa2b5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1667468408000,
+        "stop" : 1667468408000,
+        "duration" : 0
+      }
+    } ]
+  },
+  "0fb339f88bd9e92482131cf69961dfb4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "18374a829b28b858",
+      "status" : "passed",
+      "time" : {
+        "start" : 1667468635865,
+        "stop" : 1667468635917,
+        "duration" : 52
+      }
+    } ]
+  },
+  "b2583b0cfd98d01320ec93534bcfc775" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b413ef199b2b62c9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1667468408009,
+        "stop" : 1667468408010,
+        "duration" : 1
+      }
+    } ]
+  },
+  "634d962062c49631c0aba78b70799d86" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "282427adaf0b4604",
+      "status" : "passed",
+      "time" : {
+        "start" : 1667468635776,
+        "stop" : 1667468635842,
+        "duration" : 66
+      }
+    } ]
+  }
+}

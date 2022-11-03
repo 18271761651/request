@@ -1,0 +1,15 @@
+
+request:
+  host: www.baidu.com
+  method: post
+  body:
+    name: hlcs
+    pwd: 123456
+  header:
+    content/Type: application/json
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  pwd: 123456
+  name: 本地服务
