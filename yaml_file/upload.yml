@@ -1,23 +1,26 @@
 -
-  name: 上传图片
+  name: 上传图片01
+  is_run: True
   request:
     method: post
-    url: http://116.63.186.61:2031/api/Common/Files/Upload
-    file:
+    api: /api/Common/Files/Upload
+    data:
       module: Goods
       filename: 鬼灭之刃.jpg
       filepath: E:\图片\Saved Pictures\鬼灭之刃.jpg
       formate: image.png
+
   validate: None
 
 -
-  name:  "${get_random_number()}"
+  name: 上传图片02
+  is_run: True
   request:
     method: post
-    url: http://116.63.186.61:2031/api/Common/Files/UploadVideo
-    file:
-      module: GoodsVideo
-      filename: 1.mp4
-      filepath: E:\视频\录像\1.mp4
-      formate: video/mp4
+    api: /api/Common/Files/Upload
+    data:
+      module: Goods
+      filename: 鬼灭之刃.jpg
+      filepath: E:\图片\Saved Pictures\鬼灭之刃.jpg
+      formate: image.png
   validate: None

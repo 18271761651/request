@@ -1,12 +1,42 @@
 -
+  casename: 001
+  is_run: True
   request:
-    method: post
-    url: http://116.63.186.61:2031/api/Common/Login/Login
+    method: POST
+    api: /api/Common/Login/Login
     data:
       loginName: hlcs
-      pwd: 123456
-      expirationDays: 1
-    headers:
-      Content-Type: application/json
-  validate: None
+      pwd: "123456"
+      expirationDays: "1"
+  extract:
+    encryptedAccessToken: $..encryptedAccessToken
+  assert_expression:
+    ['"1"=="$.businessStatus"']
 
+-
+  casename: 002
+  is_run: False
+  request:
+    method: POST
+    api: /api/Common/Login/Login
+    data:
+      loginName: hlcs
+      pwd: "123456"
+      expirationDays: "1"
+  extract: {}
+  assert_expression:
+    ['"1"=="$.businessStatus"']
+
+-
+  casename: 003
+  is_run: True
+  request:
+    method: POST
+    api: /api/Common/Login/Login
+    data:
+      loginName: hlcs
+      pwd: "123456"
+      expirationDays: "1"
+  extract: {}
+  assert_expression:
+    ['"1"=="$.businessStatus"']

@@ -1,8 +1,9 @@
-import os,pytest,allure
+import os,pytest
 
 if __name__ == '__main__':
-    pytest.main(['-vs','-m=smoke','--alluredir','./reports/tmp'])
+    pytest.main(['-vs','-m=parametrize','--alluredir','./reports/tmp'])
     os.system('allure generate ./reports/tmp -c -o ./reports/html' )
+
 
     # pytest常用命令：
         # -x:用例运行失败则立即停止执行
@@ -27,7 +28,7 @@ if __name__ == '__main__':
         # commond: generate 生成allure报告
         # 示例：
         # allure
-        # generate. / report / xlm - o. / report / html - c. / report / html
+        # generate ./report/xlm -o ./report/ html -c./report/html
         # 在生成新的Allure报告之前，先清除该目录： `-c, --clean`
         # 指定目录生成allure报告： `-o, --report - dir, --output`
 

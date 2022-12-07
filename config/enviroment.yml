@@ -1,0 +1,11 @@
+test_enviroment:
+  domain_name: 116.63.186.61:2031
+  headers:
+    Content-Type: application/json
+  http: http://
+
+pro_enviroment:
+  domain_name: shopapi.hlwulian.com
+  headers:
+    Content-Type: application/json
+  http: http://
